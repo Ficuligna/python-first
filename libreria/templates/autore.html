@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  | autore {{author.nome}}
+{% endblock title %}
+
+{% block content %}
+
+  <p>Autore:<b> {{author}}</b></p>
+  <p>Nazionalità: <b>{{author.nazione}}</b></p>
+  <p>Libri:
+  {% for libro in author.libri.all %}
+    <p><b>{{libro.titolo}}</b></p>
+  {% endfor %}
+  </p>
+{% endblock content %}

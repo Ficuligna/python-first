@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} | homepage{% endblock title %}
+
+  {% block content %}
+    <h2>Lista libri</h2>
+    {% for book in books %}
+    <div class="libro">
+      <p>Titolo: <b>{{book.titolo}}</b></p>
+      <p>Autore: <b><a href="{{book.autore.get_absolute_url}}">{{book.autore}}</a></b></p>
+      <p>Generi:
+        {% for genere in book.generi.all %}
+        <b>{{genere}}</b>
+        {% endfor %}
+      </p>
+      <p>Isbn: <b>{{book.isbn}}</b></p>
+
+    </div>
+
+    {% endfor %}
+
+  {% endblock content %}
